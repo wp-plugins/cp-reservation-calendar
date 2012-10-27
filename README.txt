@@ -8,11 +8,11 @@ Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-CP Reservation Calendar is a booking calendar that allows to select dates - ex: check-in and check-out dates - for a reservation. 
+CP Reservation Calendar is a booking calendar that allows selecting dates - ex: check-in and check-out dates - for a reservation. 
 
 == Description ==
 
-CP Reservation Calendar is a booking calendar that allows to select dates - ex: check-in and check-out dates - for a reservation. 
+CP Reservation Calendar is a booking calendar that allows selecting dates - ex: check-in and check-out dates - for a reservation. 
 
 = Main Features: =
 
@@ -23,25 +23,25 @@ CP Reservation Calendar is a booking calendar that allows to select dates - ex: 
 5. Multiple configuration options
 6. One-click publishing process 
 
-This **booking calendar** can be used for hotel bookings, tour bookings, car rentals, office rentals, jewels rentals, cellphone rentals, etc. It's **integrated with Paypal** for receiving the reservation payments and has many other features(details below).
+This **booking calendar** can be used for hotel bookings, tour bookings, car rentals, office rentals, jewels rentals, cellphone rentals, etc. It's **integrated with PayPal** for receiving the reservation payments and has many other features (details below).
 
 The reservation calendar can be configured in two modes: "complete day" or "partial day" bookings. *Complete day* means that the first and the last days booked are charged as full days while *Partial Day* means that they are charged as half-days only. Partial Day system is widely used by hotels and car rental systems: the customer is charged half a daily rate for both the arrival/pick-up day and the departure/drop-off day, thereby matching the number of nights actually spent in the hotel or the 24 hour days using the service.
 
 = More Features: =
 
-* The website visitors can **select an start date and end date for the reservation** and pay for it through **Paypal / credit cards**.
+* The website visitors can **select a start date and end date for the reservation** and pay for it through **PayPal / credit cards**.
 * The amount to pay is **calculated** based in the number of days of the reservation.
 * Once a reservation has been booked it appears as blocked in order to **prevent duplicated bookings**.
 * You receive an **email** after each confirmed (paid) booking.
 * The user receives a **thank you/confirmation email** after completing the payment.
 * Allows **customizing the contents** of the notification/confirmation emails.
-* Allows defining the product name at Paypal, the currency, the Paypal language and amount to pay for a booking (you can set zero to let the user pay/donate the desired amount).
+* Allows defining the product name at PayPal, the currency, the PayPal language and amount to pay for a booking (you can set zero to let the user pay/donate the desired amount).
 * You can define the **start day** of the week.
 * You can define the **minimum available date** and the **maximum available date** for the booking calendar.
 * You can **block specific dates**.
 * You can **assign a user** to the calendar. The owner (with Editor Access Level) can edit only their own calendar.
-* You can publish the calendars of a specific user with the shorttag *[CP_RESERVATION_CALENDAR user="admin"]*
-* You can publish a specific calendar with the shorttag *[CP_RESERVATION_CALENDAR calendar="1"]*
+* You can **publish the calendars of a specific user** with the shorttag *[CP_RESERVATION_CALENDAR user="admin"]*
+* You can **publish a specific calendar** with the shorttag *[CP_RESERVATION_CALENDAR calendar="1"]*
 * Can be configured in two modes: **"complete day"** or **"partial day"** bookings.
 * Easy Ajax administration for the calendar.
 
@@ -73,7 +73,6 @@ http://wordpress.dwbooster.com/calendars/cp-reservation-calendar
 
 = 1.0 =
 * First stable version released.
-* More configuration options added.
 
 = 1.0.1 =
 * Little bugs fixed
