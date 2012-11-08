@@ -311,6 +311,14 @@ function dex_reservations_filter_content($content) {
     return $content;
 }
 
+function dex_reservations_show_booking_form($id = "")
+{
+    if ($id != '')
+        define ('DEX_CALENDAR_FIXED_ID',$id);
+    define('DEX_AUTH_INCLUDE', true);
+    @include dirname( __FILE__ ) . '/dex_scheduler.inc.php';    
+}
+
 
 /* Code for the admin area */
 
