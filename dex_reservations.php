@@ -471,6 +471,9 @@ function dex_reservations_check_posted_data()
     $days = round(
                    (strtotime($_POST["dateAndTime_e"]) - strtotime($_POST["dateAndTime_s"])) / (24 * 60 * 60)
                  );
+    if (dex_reservations_get_option('calendar_mode',DEX_RESERVATIONS_DEFAULT_CALENDAR_MODE) == 'false')             
+        $days++; 
+        
     $price = floatval ($price)*$days;
 
     $rows_affected = $wpdb->insert( DEX_RESERVATIONS_TABLE_NAME, array( 'calendar' => $selectedCalendar,
