@@ -448,7 +448,7 @@ function dex_reservations_check_posted_data()
     else
     {
         $_POST["Date_s"] = date("m/d/Y H:i",strtotime($_POST["dateAndTime_s"]));
-        $_POST["Date_e"] = date("d/m/Y H:i",strtotime($_POST["dateAndTime_e"]));
+        $_POST["Date_e"] = date("m/d/Y H:i",strtotime($_POST["dateAndTime_e"]));
     }
 
     $services_formatted = explode("|",$_POST["services"]);
@@ -519,7 +519,7 @@ function dex_reservations_check_posted_data()
 <input type="hidden" name="return" value="<?php echo dex_reservations_get_option('url_ok', DEX_RESERVATIONS_DEFAULT_OK_URL); ?>">
 <input type="hidden" name="cancel_return" value="<?php echo dex_reservations_get_option('url_cancel', DEX_RESERVATIONS_DEFAULT_CANCEL_URL); ?>" />
 <input type="hidden" name="no_note" value="1" />
-<input type="hidden" name="currency_code" value="<?php echo dex_reservations_get_option('currency', DEX_RESERVATIONS_DEFAULT_CURRENCY); ?>" />
+<input type="hidden" name="currency_code" value="<?php echo strtoupper(dex_reservations_get_option('currency', DEX_RESERVATIONS_DEFAULT_CURRENCY)); ?>" />
 <input type="hidden" name="lc" value="<?php echo dex_reservations_get_option('paypal_language', DEX_RESERVATIONS_DEFAULT_PAYPAL_LANGUAGE); ?>" />
 <input type="hidden" name="bn" value="PP-BuyNowBF" />
 <input type="hidden" name="notify_url" value="<?php echo cp_reservation_get_FULL_site_url(); ?>?ipncheck=1&itemnumber=<?php echo $item_number; ?>" />
