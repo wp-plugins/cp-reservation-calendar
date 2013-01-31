@@ -522,7 +522,7 @@ function dex_reservations_check_posted_data()
 <input type="hidden" name="currency_code" value="<?php echo strtoupper(dex_reservations_get_option('currency', DEX_RESERVATIONS_DEFAULT_CURRENCY)); ?>" />
 <input type="hidden" name="lc" value="<?php echo dex_reservations_get_option('paypal_language', DEX_RESERVATIONS_DEFAULT_PAYPAL_LANGUAGE); ?>" />
 <input type="hidden" name="bn" value="PP-BuyNowBF" />
-<input type="hidden" name="notify_url" value="<?php echo cp_reservation_get_FULL_site_url(); ?>?ipncheck=1&itemnumber=<?php echo $item_number; ?>" />
+<input type="hidden" name="notify_url" value="<?php echo cp_reservation_get_FULL_site_url(); ?>/?ipncheck=1&itemnumber=<?php echo $item_number; ?>" />
 <input type="hidden" name="ipn_test" value="1" />
 <input class="pbutton" type="hidden" value="Buy Now" /></div>
 </form>
