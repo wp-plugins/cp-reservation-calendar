@@ -708,7 +708,7 @@ function dex_reservations_calendar_load2() {
 function dex_reservations_calendar_update2() {
     global $wpdb, $user_ID;
  
-    if ( ! current_user_can('manage_options') )
+    if ( ! current_user_can('edit_pages') )
         return;
  
 	if ( ! isset( $_GET['dex_reservations_calendar_update2'] ) || $_GET['dex_reservations_calendar_update2'] != '1' )
