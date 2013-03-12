@@ -27,7 +27,7 @@ var dex_global_date_format = '<?php echo dex_reservations_get_option('calendar_d
 var dex_global_start_weekday = '<?php echo dex_reservations_get_option('calendar_weekday', DEX_RESERVATIONS_DEFAULT_CALENDAR_WEEKDAY); ?>';
 </script>
 <script type="text/javascript" src="<?php echo plugins_url('TDE_RCalendar/all-scripts.js', __FILE__); ?>"></script>
-<form name="FormEdit" action="<?php get_site_url(); ?>" method="post" onsubmit="return doValidate(this);">
+<form class="cpp_form" name="FormEdit" action="<?php get_site_url(); ?>" method="post" onsubmit="return doValidate(this);">
  <input name="dex_reservations_post" type="hidden" id="1" />
 <?php if (count($myrows) < 2) { ?>
   <div style="display:none">
