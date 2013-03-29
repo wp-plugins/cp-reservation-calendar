@@ -41,16 +41,16 @@ define('DEX_RESERVATIONS_DEFAULT_EXPLAIN_CP_CAL_CHECKBOXES',"1.00 | Service 1 fo
 // tables
 
 define('DEX_RESERVATIONS_TABLE_NAME_NO_PREFIX', "dex_reservations");
-define('DEX_RESERVATIONS_TABLE_NAME', $wpdb->prefix . DEX_RESERVATIONS_TABLE_NAME_NO_PREFIX);
+define('DEX_RESERVATIONS_TABLE_NAME', @$wpdb->prefix . DEX_RESERVATIONS_TABLE_NAME_NO_PREFIX);
 
 define('DEX_RESERVATIONS_CALENDARS_TABLE_NAME_NO_PREFIX', "reservation_calendars_data");
-define('DEX_RESERVATIONS_CALENDARS_TABLE_NAME', $wpdb->prefix ."reservation_calendars_data");
+define('DEX_RESERVATIONS_CALENDARS_TABLE_NAME', @$wpdb->prefix ."reservation_calendars_data");
 
 define('DEX_RESERVATIONS_CONFIG_TABLE_NAME_NO_PREFIX', "reservation_calendars");
-define('DEX_RESERVATIONS_CONFIG_TABLE_NAME', $wpdb->prefix ."reservation_calendars");
+define('DEX_RESERVATIONS_CONFIG_TABLE_NAME', @$wpdb->prefix ."reservation_calendars");
 
 define('DEX_RESERVATIONS_DISCOUNT_CODES_TABLE_NAME_NO_PREFIX', "dex_reservations_discount_codes");
-define('DEX_RESERVATIONS_DISCOUNT_CODES_TABLE_NAME', $wpdb->prefix ."dex_reservations_discount_codes");
+define('DEX_RESERVATIONS_DISCOUNT_CODES_TABLE_NAME', @$wpdb->prefix ."dex_reservations_discount_codes");
 
 // calendar constants
 
@@ -95,7 +95,6 @@ define('TDE_RESERVATIONDEFAULT_dexcv_text_enter_valid_captcha', 'Please enter a 
 
 
 register_activation_hook(__FILE__,'dex_reservations_install');
-register_deactivation_hook( __FILE__, 'dex_reservations_remove' );
 
 function dex_reservations_install($networkwide)  {
 	global $wpdb;
@@ -119,16 +118,6 @@ function dex_reservations_install($networkwide)  {
 
 function _dex_reservations_install() {
     global $wpdb;    
-
-    $sql = "DROP TABLE IF EXISTS".$wpdb->prefix.DEX_RESERVATIONS_DISCOUNT_CODES_TABLE_NAME_NO_PREFIX.";";
-    $wpdb->query($sql);
-    $sql = "DROP TABLE IF EXISTS".$wpdb->prefix.DEX_RESERVATIONS_TABLE_NAME_NO_PREFIX.";";
-    $wpdb->query($sql);
-    $sql = "DROP TABLE IF EXISTS".$wpdb->prefix.DEX_RESERVATIONS_CONFIG_TABLE_NAME.";";
-    $wpdb->query($sql);
-    $sql = "DROP TABLE IF EXISTS".$wpdb->prefix.DEX_RESERVATIONS_CALENDARS_TABLE_NAME.";";
-    $wpdb->query($sql);
-    
     
     $sql = "CREATE TABLE ".$wpdb->prefix.DEX_RESERVATIONS_DISCOUNT_CODES_TABLE_NAME_NO_PREFIX." (
          id mediumint(9) NOT NULL AUTO_INCREMENT,
@@ -153,8 +142,8 @@ function _dex_reservations_install() {
          name VARCHAR(250) DEFAULT '' NOT NULL,
          email VARCHAR(250) DEFAULT '' NOT NULL,
          phone VARCHAR(250) DEFAULT '' NOT NULL,
-         question text DEFAULT '' NOT NULL,
-         buffered_date text DEFAULT '' NOT NULL,
+         question text,
+         buffered_date text,
          UNIQUE KEY id (id)
          );";
     $wpdb->query($sql);
@@ -183,16 +172,16 @@ function _dex_reservations_install() {
                    "`request_cost` varchar(255) DEFAULT '' NOT NULL ,".
                    "`paypal_product_name` varchar(255) DEFAULT '' NOT NULL,".
                    "`currency` varchar(10) DEFAULT '' NOT NULL,".
-                   "`url_ok` text DEFAULT '' NOT NULL,".
-                   "`url_cancel` text DEFAULT '' NOT NULL,".
+                   "`url_ok` text,".
+                   "`url_cancel` text,".
                    "`paypal_language` varchar(10) DEFAULT '' NOT NULL,".
                    // copy to user
-                   "`notification_from_email` text DEFAULT '' NOT NULL,".
-                   "`notification_destination_email` text DEFAULT '' NOT NULL,".
-                   "`email_subject_confirmation_to_user` text DEFAULT '' NOT NULL ,".
-                   "`email_confirmation_to_user` text DEFAULT '' NOT NULL,".
-                   "`email_subject_notification_to_admin` text DEFAULT '' NOT NULL,".
-                   "`email_notification_to_admin` text DEFAULT '' NOT NULL,".
+                   "`notification_from_email` text,".
+                   "`notification_destination_email` text,".
+                   "`email_subject_confirmation_to_user` text,".
+                   "`email_confirmation_to_user` text,".
+                   "`email_subject_notification_to_admin` text,".
+                   "`email_notification_to_admin` text,".
                    // captcha
                    "`dexcv_enable_captcha` varchar(10) DEFAULT '' NOT NULL,".
                    "`dexcv_width` varchar(10) DEFAULT '' NOT NULL,".
@@ -206,7 +195,7 @@ function _dex_reservations_install() {
                    "`dexcv_border` varchar(10) DEFAULT '' NOT NULL,".
                    "`dexcv_font` varchar(100) DEFAULT '' NOT NULL,".
                    // services field
-                   "`cp_cal_checkboxes` text DEFAULT '' NOT NULL,".                                                                            
+                   "`cp_cal_checkboxes` text,".
                    "PRIMARY KEY (`".TDE_RESERVATIONCONFIG_ID."`)); ";
     $wpdb->query($sql);
     
@@ -226,13 +215,6 @@ function _dex_reservations_install() {
     
 
     require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-    //dbDelta($sql);
-
-    add_option("dex_reservations_data", 'Default', '', 'yes'); // Creates new database field
-}
-
-function dex_reservations_remove() {
-    delete_option('dex_reservations_data'); // Deletes the database field
 }
 
 
@@ -363,9 +345,9 @@ function dex_reservations_customAdjustmentsLink($links) {
 }
 
 function dex_reservations_html_post_page() {
-    if ($_GET["cal"] != '')
+    if (isset($_GET["cal"]) && $_GET["cal"] != '')
     {
-        if ($_GET["list"] == '1')
+        if (isset($_GET["list"]) && $_GET["list"] == '1')
             @include_once dirname( __FILE__ ) . '/dex_reservations_admin_int_bookings_list.inc.php';
         else
             @include_once dirname( __FILE__ ) . '/dex_reservations_admin_int.inc.php';
@@ -380,7 +362,7 @@ function set_dex_reservations_insert_button() {
 }
 
 function set_dex_reservations_insert_adminScripts($hook) {
-    if ($_GET["cal"] != '')
+    if (isset($_GET["cal"]) && $_GET["cal"] != '')
     {
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-ui-core' );
@@ -406,7 +388,7 @@ function dex_reservations_check_posted_data()
 {
     global $wpdb;
 
-    if ( $_GET["dex_reservations"] == 'calfeed')
+    if (isset($_GET["dex_reservations"]) &&  $_GET["dex_reservations"] == 'calfeed')
         dex_reservations_export_iCal();
         
 
@@ -451,20 +433,21 @@ function dex_reservations_check_posted_data()
         $_POST["Date_e"] = date("m/d/Y H:i",strtotime($_POST["dateAndTime_e"]));
     }
 
-    $services_formatted = explode("|",$_POST["services"]);
+    $services_formatted = explode("|",@$_POST["services"]);
 
-    $price = ($_POST["services"]?trim($services_formatted[0]):dex_reservations_get_option('request_cost', DEX_RESERVATIONS_DEFAULT_COST));
+    $price = (@$_POST["services"]?trim($services_formatted[0]):dex_reservations_get_option('request_cost', DEX_RESERVATIONS_DEFAULT_COST));
  
     $discount_note = "";
     $coupon = false;  
 
-    $buffer = $_POST["selYearcal".$selectedCalendar].",".$_POST["selMonthcal".$selectedCalendar].",".$_POST["selDaycal".$selectedCalendar]."\n".
-    $_POST["selHourcal".$selectedCalendar].":".($_POST["selMinutecal".$selectedCalendar]<10?"0":"").$_POST["selMinutecal".$selectedCalendar]."\n".
+    $buffer = $_POST["Date_s"] ." - ". $_POST["Date_e"] ."\n".
+    //$_POST["selYearcal".$selectedCalendar].",".$_POST["selMonthcal".$selectedCalendar].",".$_POST["selDaycal".$selectedCalendar]."\n".
+    //$_POST["selHourcal".$selectedCalendar].":".($_POST["selMinutecal".$selectedCalendar]<10?"0":"").$_POST["selMinutecal".$selectedCalendar]."\n".
     "Name: ".$_POST["name"]."\n".
     "Email: ".$_POST["email"]."\n".
     "Phone: ".$_POST["phone"]."\n".
     "Question: ".$_POST["question"]."\n".
-            ($_POST["services"]?"\nService:".trim($services_formatted[1])."\n":"").
+            (@$_POST["services"]?"\nService:".trim($services_formatted[1])."\n":"").
             ($coupon?"\nCoupon code:".$coupon->code.$discount_note."\n":"").
     "*-*\n";
     
@@ -486,7 +469,7 @@ function dex_reservations_check_posted_data()
                                                                         'email' => $_POST["email"],
                                                                         'phone' => $_POST["phone"],
                                                                         'question' => $_POST["question"]
-                                                                           .($_POST["services"]?"\nService:".trim($services_formatted[1]):"")
+                                                                           .(@$_POST["services"]?"\nService:".trim($services_formatted[1]):"")
                                                                            .($coupon?"\nCoupon code:".$coupon->code.$discount_note:"")
                                                                            ,
                                                                         'buffered_date' => $buffer
@@ -511,7 +494,7 @@ function dex_reservations_check_posted_data()
 <form action="https://www.paypal.com/cgi-bin/webscr" name="ppform3" method="post">
 <input type="hidden" name="cmd" value="_xclick" />
 <input type="hidden" name="business" value="<?php echo dex_reservations_get_option('paypal_email', DEX_RESERVATIONS_DEFAULT_PAYPAL_EMAIL); ?>" />
-<input type="hidden" name="item_name" value="<?php echo dex_reservations_get_option('paypal_product_name', DEX_RESERVATIONS_DEFAULT_PRODUCT_NAME).($_POST["services"]?": ".trim($services_formatted[1]):"").$discount_note; ?>" />
+<input type="hidden" name="item_name" value="<?php echo dex_reservations_get_option('paypal_product_name', DEX_RESERVATIONS_DEFAULT_PRODUCT_NAME).(@$_POST["services"]?": ".trim($services_formatted[1]):"").$discount_note; ?>" />
 <input type="hidden" name="item_number" value="<?php echo $item_number; ?>" />
 <input type="hidden" name="amount" value="<?php echo $price; ?>" />
 <input type="hidden" name="page_style" value="Primary" />
@@ -640,7 +623,7 @@ function dex_reservations_save_options()
          'calendar_language' => $_POST["calendar_language"],
          'calendar_dateformat' => $_POST["calendar_dateformat"],
          'calendar_mode' => $_POST["calendar_mode"],        
-         'calendar_pages' => $_POST["calendar_pages"],         
+         'calendar_pages' => 1,         
          'calendar_weekday' => $_POST["calendar_weekday"],
          'calendar_mindate' => $_POST["calendar_mindate"],
          'calendar_maxdate' => $_POST["calendar_maxdate"],
@@ -672,7 +655,7 @@ function dex_reservations_save_options()
          'dexcv_background' => $_POST["dexcv_background"],
          'dexcv_border' => $_POST["dexcv_border"],
          'dexcv_font' => $_POST["dexcv_font"],
-         'cp_cal_checkboxes' => $_POST["cp_cal_checkboxes"]
+         'cp_cal_checkboxes' => ''
 	);
     $wpdb->update ( DEX_RESERVATIONS_CONFIG_TABLE_NAME, $data, array( 'id' => CP_CALENDAR_ID ));
 }
@@ -772,7 +755,7 @@ $dex_option_buffered_id = -1;
 
 function dex_reservations_get_option ($field, $default_value)
 {
-    global $wpdb, $dex_option_buffered_item;
+    global $wpdb, $dex_option_buffered_item, $dex_option_buffered_id;
     if ($dex_option_buffered_id == CP_CALENDAR_ID)
         $value = $dex_option_buffered_item->$field;
     else
