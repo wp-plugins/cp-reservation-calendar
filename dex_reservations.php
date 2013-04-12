@@ -441,14 +441,12 @@ function dex_reservations_check_posted_data()
     $coupon = false;  
 
     $buffer = $_POST["Date_s"] ." - ". $_POST["Date_e"] ."\n".
-    //$_POST["selYearcal".$selectedCalendar].",".$_POST["selMonthcal".$selectedCalendar].",".$_POST["selDaycal".$selectedCalendar]."\n".
-    //$_POST["selHourcal".$selectedCalendar].":".($_POST["selMinutecal".$selectedCalendar]<10?"0":"").$_POST["selMinutecal".$selectedCalendar]."\n".
     "Name: ".$_POST["name"]."\n".
     "Email: ".$_POST["email"]."\n".
     "Phone: ".$_POST["phone"]."\n".
     "Question: ".$_POST["question"]."\n".
-            (@$_POST["services"]?"\nService:".trim($services_formatted[1])."\n":"").
-            ($coupon?"\nCoupon code:".$coupon->code.$discount_note."\n":"").
+            (@$_POST["services"]?"\nService: ".trim($services_formatted[1])."\n":"").
+            ($coupon?"\nCoupon code: ".$coupon->code.$discount_note."\n":"").
     "*-*\n";
     
     $days = round(
@@ -469,8 +467,8 @@ function dex_reservations_check_posted_data()
                                                                         'email' => $_POST["email"],
                                                                         'phone' => $_POST["phone"],
                                                                         'question' => $_POST["question"]
-                                                                           .(@$_POST["services"]?"\nService:".trim($services_formatted[1]):"")
-                                                                           .($coupon?"\nCoupon code:".$coupon->code.$discount_note:"")
+                                                                           .(@$_POST["services"]?"\nService: ".trim($services_formatted[1]):"")
+                                                                           .($coupon?"\nCoupon code: ".$coupon->code.$discount_note:"")
                                                                            ,
                                                                         'buffered_date' => $buffer
                                                                          ) );
