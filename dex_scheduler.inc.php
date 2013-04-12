@@ -41,9 +41,7 @@ var dex_global_start_weekday = '<?php echo dex_reservations_get_option('calendar
 <select name="dex_item" id="dex_item" onchange="dex_updateItem()">
 <?php
   foreach ($myrows as $item)
-  {
       echo '<option value='.$item->id.'>'.$item->uname.'</option>';
-  }
 ?>
 </select>
 
@@ -52,20 +50,15 @@ var dex_global_start_weekday = '<?php echo dex_reservations_get_option('calendar
 <?php
   echo __("Select start and end dates").":";
 ?>
-<?php
-  foreach ($myrows as $item)
-  {
-?>
-<div id="calarea_<?php echo $item->id; ?>" style="display:none">
- <input name="selDay_start<?php echo $item->id; ?>" type="hidden" id="selDay_start<?php echo $item->id; ?>" /><input name="selMonth_start<?php echo $item->id; ?>" type="hidden" id="selMonth_start<?php echo $item->id; ?>" /><input name="selYear_start<?php echo $item->id; ?>" type="hidden" id="selYear_start<?php echo $item->id; ?>" /><input name="selDay_end<?php echo $item->id; ?>" type="hidden" id="selDay_end<?php echo $item->id; ?>" /><input name="selMonth_end<?php echo $item->id; ?>" type="hidden" id="selMonth_end<?php echo $item->id; ?>" /><input name="selYear_end<?php echo $item->id; ?>" type="hidden" id="selYear_end<?php echo $item->id; ?>" />
- <div style="z-index:1000;">
-   <div id="containerRCalendar<?php echo $item->id; ?>"></div>
- </div>
- <div style="clear:both;"></div>
-</div>
-<?php
-  }
-?>
+<?php foreach ($myrows as $item) {  ?>
+    <div id="calarea_<?php echo $item->id; ?>" style="display:none">
+     <input name="selDay_start<?php echo $item->id; ?>" type="hidden" id="selDay_start<?php echo $item->id; ?>" /><input name="selMonth_start<?php echo $item->id; ?>" type="hidden" id="selMonth_start<?php echo $item->id; ?>" /><input name="selYear_start<?php echo $item->id; ?>" type="hidden" id="selYear_start<?php echo $item->id; ?>" /><input name="selDay_end<?php echo $item->id; ?>" type="hidden" id="selDay_end<?php echo $item->id; ?>" /><input name="selMonth_end<?php echo $item->id; ?>" type="hidden" id="selMonth_end<?php echo $item->id; ?>" /><input name="selYear_end<?php echo $item->id; ?>" type="hidden" id="selYear_end<?php echo $item->id; ?>" />
+     <div style="z-index:1000;">
+       <div id="containerRCalendar<?php echo $item->id; ?>"></div>
+     </div>
+     <div style="clear:both;"></div>
+    </div>
+<?php } ?>
 <div id="selddiv" style="font-weight: bold;margin-top:5px;padding:3px;"></div>
 <script type="text/javascript">
  var dex_current_calendar_item;
