@@ -235,7 +235,7 @@ function dex_reservations_filter_content($content) {
             define ('DEX_CALENDAR_USER',0);
         else
         {
-            $users = $wpdb->get_results( "SELECT user_login,ID FROM ".$wpdb->prefix."users ORDER BY ID DESC" );
+            $users = $wpdb->get_results( "SELECT user_login,ID FROM ".$wpdb->users." ORDER BY ID DESC" );
             foreach ($users as $user)
             {
                 $shorttag =  "[CP_RESERVATION_CALENDAR user=\"".$user->user_login."\"]";
