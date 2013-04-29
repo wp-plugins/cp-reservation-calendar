@@ -91,7 +91,7 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
    </tr> 
 <?php  
 
-  $users = $wpdb->get_results( "SELECT user_login,ID FROM ".$wpdb->prefix."users ORDER BY ID DESC" );                                                                     
+  $users = $wpdb->get_results( "SELECT user_login,ID FROM ".$wpdb->users." ORDER BY ID DESC" );                                                                     
 
   $myrows = $wpdb->get_results( "SELECT * FROM ".DEX_RESERVATIONS_CONFIG_TABLE_NAME );                                                                     
   foreach ($myrows as $item)   
