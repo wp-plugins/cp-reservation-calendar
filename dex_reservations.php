@@ -92,7 +92,10 @@ define('TDE_RESERVATIONDEFAULT_dexcv_border', '000000');
 define('TDE_RESERVATIONDEFAULT_dexcv_text_enter_valid_captcha', 'Please enter a valid captcha code.');
 
 
-
+function dex_reservations_plugin_init() {
+  load_plugin_textdomain( 'default', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
+add_action('plugins_loaded', 'dex_reservations_plugin_init');
 
 register_activation_hook(__FILE__,'dex_reservations_install');
 
