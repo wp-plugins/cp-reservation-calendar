@@ -63,6 +63,52 @@ A: The product's page contains detailed information about each field and customi
 
 http://wordpress.dwbooster.com/calendars/cp-reservation-calendar
 
+= Q: How can I change the calendar's size and colors? =
+
+A: Go to the file "cp-reservation-calendar/TDE_RCalendar/all-css.css" and edit the following styles:
+
+Line #13 - style for the external border; background and border:
+
+    .yui-calcontainer { 
+      float:left;    padding:5px; background-color:#F7F9FB; border:1px solid #7B9EBD;
+    }
+
+
+Line #42 - style for width, height, border and background for all cells:
+
+    .yui-calendar td.calcell {
+      width:2em; height:2em; border:1px solid #E0E0E0; background-color:#FFF;
+    }
+
+
+Line #46 - style for the current month's cells:
+
+    .yui-calendar td.calcell a {
+      color:#003DB8; text-decoration:none; 
+    }
+
+
+Line #53 - style for the cells with days that do not belong to the current month:
+
+    .yui-calendar td.calcell.oom {   
+      cursor:default; color:#999; background-color:#EEE; border:1px solid #E0E0E0; 
+    }
+
+
+Line #81 - style cells with associated information (events, links):
+
+    .yui-calendar td.calcell.reserved {
+      background-color:#FFff00;
+    } 
+
+
+Line #109 - style for day's names:
+
+    .yui-calendar .calweekdaycell {
+      color:#666; font-weight:normal;
+    }
+    
+    
 == Screenshots ==
 
 1. Inserting the reservation calendar into a page.
