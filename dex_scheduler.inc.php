@@ -41,8 +41,8 @@ define ('CP_CALENDAR_ID',1);
 <script>
 var pathCalendar = "<?php echo cp_reservation_get_site_url(); ?>";
 var pathCalendar_full = pathCalendar + "/wp-content/plugins/<?php echo str_replace(" ","%20",basename(dirname(__FILE__)));?>/TDE_RCalendar";
-var minDateConfigTDE = "<?php $value = dex_reservations_get_option('calendar_mindate', DEX_RESERVATIONS_DEFAULT_CALENDAR_MINDATE); if ($value != '') echo date("n/j/Y", strtotime($value)); ?>";  //month/day/year like this "10/5/2008" or "now" for current date
-var maxDateConfigTDE = "<?php $value = dex_reservations_get_option('calendar_maxdate', DEX_RESERVATIONS_DEFAULT_CALENDAR_MAXDATE); if ($value != '') echo date("n/j/Y",strtotime($value)); ?>";  //month/day/year like this "10/5/2008" or "now" for current date
+var minDateConfigTDE = "<?php $value = dex_reservations_get_option('calendar_mindate', DEX_RESERVATIONS_DEFAULT_CALENDAR_MINDATE); if ($value != '') echo date("n/j/Y", strtotime($value)); ?>";
+var maxDateConfigTDE = "<?php $value = dex_reservations_get_option('calendar_maxdate', DEX_RESERVATIONS_DEFAULT_CALENDAR_MAXDATE); if ($value != '') echo date("n/j/Y",strtotime($value)); ?>";
 var dex_global_date_format = '<?php echo dex_reservations_get_option('calendar_dateformat', DEX_RESERVATIONS_DEFAULT_CALENDAR_DATEFORMAT); ?>';
 var dex_global_start_weekday = '<?php echo dex_reservations_get_option('calendar_weekday', DEX_RESERVATIONS_DEFAULT_CALENDAR_WEEKDAY); ?>';
 </script>
