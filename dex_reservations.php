@@ -723,7 +723,7 @@ function dex_reservations_calendar_update2() {
                         if ($j!=count($data)-1)
                             $description .= "\n";
                     }
-                    $wpdb->query("insert into ".TDE_RESERVATIONCALENDAR_DATA_TABLE."(".TDE_RESERVATIONDATA_IDCALENDAR.",".TDE_RESERVATIONDATA_DATETIME_S.",".TDE_RESERVATIONDATA_DATETIME_E.",".TDE_RESERVATIONDATA_TITLE.",".TDE_RESERVATIONDATA_DESCRIPTION.") values(".$calid.",'".$datetime_s."','".$datetime_e."','".$wpdb->escape($title)."','".$wpdb->escape($description)."') ");
+                    $wpdb->query("insert into ".TDE_RESERVATIONCALENDAR_DATA_TABLE."(".TDE_RESERVATIONDATA_IDCALENDAR.",".TDE_RESERVATIONDATA_DATETIME_S.",".TDE_RESERVATIONDATA_DATETIME_E.",".TDE_RESERVATIONDATA_TITLE.",".TDE_RESERVATIONDATA_DESCRIPTION.") values(".$calid.",'".$datetime_s."','".$datetime_e."','".esc_sql($title)."','".esc_sql($description)."') ");
                 }    
         }
     }

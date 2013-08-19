@@ -3,7 +3,7 @@ Contributors: codepeople
 Donate http://wordpress.dwbooster.com/calendars/cp-reservation-calendar
 Tags: reservation calendar,booking calendar,bookings,reservations,paypal,calendar,reservation,booking
 Requires at least: 3.0.5
-Tested up to: 3.5
+Tested up to: 3.6
 Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -123,6 +123,7 @@ Line #109 - style for day's names:
 = 1.0.1 =
 * Little bugs fixed
 * More configuration settings added
+* Compatible with WP 3.6
 
 == Upgrade Notice ==
 
