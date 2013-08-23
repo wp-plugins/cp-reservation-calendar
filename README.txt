@@ -108,6 +108,13 @@ Line #109 - style for day's names:
       color:#666; font-weight:normal;
     }
     
+= Q: I'm getting this message: "Destination folder already exists". Solution? =
+
+A: The currently installed version of the plugin (if any) must be deleted before installing a new version.
+
+This is a safe step, the plugin's data and settings won't be lost during the process.
+
+Another alternative is to overwrite the plugin files through a FTP connection. This is also a safe step.
     
 == Screenshots ==
 
