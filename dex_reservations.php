@@ -669,7 +669,7 @@ function dex_reservations_calendar_load2() {
     global $wpdb;
 	if ( ! isset( $_GET['dex_reservations_calendar_load2'] ) || $_GET['dex_reservations_calendar_load2'] != '1' )
 		return;
-    ob_end_clean();
+    @ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     $calid = str_replace  (TDE_RESERVATIONCAL_PREFIX, "",$_GET["id"]);
@@ -698,7 +698,7 @@ function dex_reservations_calendar_update2() {
 	if ( ! isset( $_GET['dex_reservations_calendar_update2'] ) || $_GET['dex_reservations_calendar_update2'] != '1' )
 		return;
  
-    ob_end_clean();
+    @ob_clean();
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     if ( $user_ID )
