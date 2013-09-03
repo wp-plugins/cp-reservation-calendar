@@ -1,6 +1,6 @@
 === CP Reservation Calendar ===
 Contributors: codepeople
-Donate http://wordpress.dwbooster.com/calendars/cp-reservation-calendar
+Donate: http://wordpress.dwbooster.com/calendars/booking-calendar-contact-form
 Tags: reservation calendar,booking calendar,bookings,reservations,paypal,calendar,reservation,booking
 Requires at least: 3.0.5
 Tested up to: 3.6
