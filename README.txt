@@ -55,6 +55,8 @@ To install **CP Reservation Calendar**, follow these steps:
 4.	Configure the booking calendar settings at the administration menu >> Settings >> CP Reservation Calendar.
 5.	To insert the reservation calendar form into some content or post use the icon that will appear when editing contents
 
+To update the plugin you can either overwrite the files or upload it via Plugins - Add New - Upload.
+
 == Frequently Asked Questions ==
 
 = Q: What means each field in the booking calendar settings area? =
