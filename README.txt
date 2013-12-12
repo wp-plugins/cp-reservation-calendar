@@ -132,7 +132,7 @@ Another alternative is to overwrite the plugin files through a FTP connection. T
 = 1.0.1 =
 * Little bugs fixed
 * More configuration settings added
-* Compatible with WP 3.6
+* Compatible with WP 3.8
 * fixing tags
 
 == Upgrade Notice ==
