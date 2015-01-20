@@ -3,7 +3,7 @@
 Plugin Name: CP Reservation Calendar
 Plugin URI: http://wordpress.dwbooster.com/calendars/cp-reservation-calendar
 Description: This plugin allows you to easily insert reservation forms into your WP website.
-Version: 1.01
+Version: 1.1.6
 Author: CodePeople.net
 Author URI: http://codepeople.net
 License: GPL

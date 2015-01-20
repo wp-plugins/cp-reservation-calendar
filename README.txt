@@ -4,7 +4,7 @@ Donate link: http://wordpress.dwbooster.com/calendars/booking-calendar-contact-f
 Tags: reservation calendar,booking calendar,bookings,reservations,paypal,calendar,reservation,booking,hotel,room
 Requires at least: 3.0.5
 Tested up to: 4.1
-Stable tag: 1.0.1
+Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -133,8 +133,23 @@ Another alternative is to overwrite the plugin files through a FTP connection. T
 * Little bugs fixed
 * More configuration settings added
 * Compatible with WP 3.8
+* New configuration settings and improvements.
+
+= 1.1.6 =
+* Compatible with the latest WP versions
+* Better interface and access to the plugin options
+* Minor bug fixes
+
+Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
 
 == Upgrade Notice ==
 
-= 1.0.1 =
-New configuration settings and improvements.
+Very Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
+
+= 1.1.6 =
+* Compatible with the latest WP versions
+* Better interface and access to the plugin options
+* Minor bug fixes
+
+
+Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support

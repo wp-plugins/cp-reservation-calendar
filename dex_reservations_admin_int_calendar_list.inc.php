@@ -39,6 +39,9 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
 <div class="wrap">
 <h2>CP Reservation Calendar</h2>
 
+
+
+
 <script type="text/javascript">
  function cp_addItem()
  {
@@ -139,6 +142,25 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
      
   </table> 
     
+<br /><br />
+<div style="border:1px solid #664444;background-color:#FDFDC8;width:90%;padding-left:10px;padding-right:10px;font-size:12px;">
+    <p><strong>Upgrade notice:</strong><br /><br />
+        This plugin is the <strong>free version of the CP Reservation Calendar</strong>. If you already have the pro version please use your personal download link to update it to the latest pro version.<br />
+        <br /><strong>Important note:</strong> There is a more advanced plugin named <strong><a href="http://wordpress.dwbooster.com/calendars/booking-calendar-contact-form?cpapp=up#download">Booking Calendar Contact Form</a></strong> developed based in this one that contains all the features present in this plugin plus a large additional set of features in both free and commercial versions, including (also in <strong>free version</strong>):
+    <br >
+    <br >&nbsp; - Season prices management
+    <br >&nbsp; - Supports bookings of a fixed length, example weekly bookings
+    <br >&nbsp; - Price structure can be defined for each number of days
+    <br >&nbsp; - Calendar configurable settings: date format, min/max dates, block dates, mark holidays, select working weekdays, calendar pages
+    <br >&nbsp; - Better jQuery based calendar
+    <br >&nbsp; - Language & translations support
+    <br >&nbsp; - Printable list of bookings
+    <br >&nbsp; - Many additional configuiration settings
+    <br >&nbsp; - ... and a lot more of features
+<br /><br />
+
+ To see the plugin details go to the <strong><a href="http://wordpress.dwbooster.com/calendars/booking-calendar-contact-form?cpapp=up#download">Booking Calendar Contact Form</a></strong> page.</p>
+</div>    
     
    
   </div>    
