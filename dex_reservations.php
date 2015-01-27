@@ -107,7 +107,7 @@ function dex_reservations_install($networkwide)  {
 		if ($networkwide) {
 	                $old_blog = $wpdb->blogid;
 			// Get all blog ids
-			$blogids = $wpdb->get_col($wpdb->prepare("SELECT blog_id FROM $wpdb->blogs"));
+			$blogids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
 			foreach ($blogids as $blog_id) {
 				switch_to_blog($blog_id);
 				_dex_reservations_install();
