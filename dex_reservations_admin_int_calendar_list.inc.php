@@ -23,7 +23,7 @@ if (isset($_GET['a']) && $_GET['a'] == '1')
 } 
 else if (isset($_GET['u']) && $_GET['u'] != '')
 {
-    $wpdb->query('UPDATE `'.DEX_RESERVATIONS_CONFIG_TABLE_NAME.'` SET conwer='.$_GET["owner"].',`'.TDE_RESERVATIONCALDELETED_FIELD.'`='.$_GET["public"].',`'.TDE_RESERVATIONCONFIG_USER.'`="'.$_GET["name"].'" WHERE `'.TDE_RESERVATIONCONFIG_ID.'`='.$_GET['u']);           
+    $wpdb->query('UPDATE `'.DEX_RESERVATIONS_CONFIG_TABLE_NAME.'` SET conwer='.$_GET["owner"].',`'.TDE_RESERVATIONCALDELETED_FIELD.'`='.$_GET["public"].',`'.TDE_RESERVATIONCONFIG_USER.'`="'.$_GET["name"].'" WHERE `'.TDE_RESERVATIONCONFIG_ID.'`='.intval($_GET['u']));           
     $message = "Item updated";        
 }
 else if (isset($_GET['d']) && $_GET['d'] != '')
