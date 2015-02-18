@@ -735,7 +735,7 @@ function dex_reservations_calendar_update2() {
 function cp_reservation_get_site_url()
 {
     $url = parse_url(get_site_url());
-    $url = rtrim($url["path"],"/");
+    $url = rtrim(@$url["path"],"/");
     return $url;
 }
 
