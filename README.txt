@@ -139,6 +139,7 @@ Another alternative is to overwrite the plugin files through a FTP connection. T
 * Compatible with the latest WP versions
 * Better interface and access to the plugin options
 * Minor bug fixes
+* Fixed issues related to the get_site_url when WP site not in the default folder
 
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
 
@@ -150,6 +151,7 @@ Very Important note: If you are using the Professional version don't update via 
 * Compatible with the latest WP versions
 * Better interface and access to the plugin options
 * Minor bug fixes
+* Fixed issues related to the get_site_url when WP site not in the default folder
 
 
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
