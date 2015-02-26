@@ -591,7 +591,7 @@ function dex_process_ready_to_go_reservation($itemnumber, $payer_email = "")
             "Content-Type: text/plain; charset=utf-8\n".
             "X-Mailer: PHP/" . phpversion());
 
-   if ($payer_email && $payer_email != $myrows[0]->email)
+   if ($payer_email && strtolower($payer_email) != strtolower($myrows[0]->email))
        wp_mail($payer_email , $email_subject1, $email_content1,
                 "From: \"$SYSTEM_EMAIL\" <".$SYSTEM_EMAIL.">\r\n".
                 "Content-Type: text/plain; charset=utf-8\n".
