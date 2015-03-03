@@ -3,7 +3,7 @@
 Plugin Name: CP Reservation Calendar
 Plugin URI: http://wordpress.dwbooster.com/calendars/cp-reservation-calendar
 Description: This plugin allows you to easily insert reservation forms into your WP website.
-Version: 1.1.6
+Version: 1.1.7
 Author: CodePeople.net
 Author URI: http://codepeople.net
 License: GPL
@@ -407,7 +407,7 @@ function dex_reservations_check_posted_data()
 		    return;
 
     if (!defined('CP_CALENDAR_ID'))
-        define ('CP_CALENDAR_ID',$_POST["dex_item"]);
+        define ('CP_CALENDAR_ID',intval($_POST["dex_item"]));
 
     session_start();
 
@@ -420,7 +420,7 @@ function dex_reservations_check_posted_data()
 
     $_SESSION['rand_code'] = '';
 
-    $selectedCalendar = $_POST["dex_item"];
+    $selectedCalendar = intval($_POST["dex_item"]);
 
     $_POST["dateAndTime_s"] =  $_POST["selYear_start".$selectedCalendar]."-".$_POST["selMonth_start".$selectedCalendar]."-".$_POST["selDay_start".$selectedCalendar];
     $_POST["dateAndTime_e"] =  $_POST["selYear_end".$selectedCalendar]."-".$_POST["selMonth_end".$selectedCalendar]."-".$_POST["selDay_end".$selectedCalendar];
@@ -618,7 +618,7 @@ function dex_reservations_save_options()
 {
     global $wpdb;
     if (!defined('CP_CALENDAR_ID'))
-        define ('CP_CALENDAR_ID',$_POST["dex_item"]);
+        define ('CP_CALENDAR_ID',intval($_POST["dex_item"]));
 
     $data = array(
          'calendar_language' => $_POST["calendar_language"],
@@ -670,6 +670,7 @@ function dex_reservations_calendar_load2() {
 	if ( ! isset( $_GET['dex_reservations_calendar_load2'] ) || $_GET['dex_reservations_calendar_load2'] != '1' )
 		return;
     @ob_clean();
+    $_GET["id"] = intval($_GET["id"]);
     header("Cache-Control: no-store, no-cache, must-revalidate");
     header("Pragma: no-cache");
     $calid = str_replace  (TDE_RESERVATIONCAL_PREFIX, "",$_GET["id"]);
@@ -775,7 +776,7 @@ function dex_reservations_get_option ($field, $default_value)
         $value = $dex_option_buffered_item->$field;
     else
     {
-       $myrows = $wpdb->get_results( "SELECT * FROM ".DEX_RESERVATIONS_CONFIG_TABLE_NAME." WHERE id=".CP_CALENDAR_ID );
+       $myrows = $wpdb->get_results( "SELECT * FROM ".DEX_RESERVATIONS_CONFIG_TABLE_NAME." WHERE id=".intval(CP_CALENDAR_ID) );
        $value = $myrows[0]->$field;
        $dex_option_buffered_item = $myrows[0];
        $dex_option_buffered_id  = CP_CALENDAR_ID;

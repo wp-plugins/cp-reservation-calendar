@@ -141,17 +141,21 @@ Another alternative is to overwrite the plugin files through a FTP connection. T
 * Minor bug fixes
 * Fixed issues related to the get_site_url when WP site not in the default folder
 
+= 1.1.7 = 
+* Security updates (Thanks to Christian Mondragon Uriel Zarate)
+* Update to the function that generates the IPN url.
+* Fixed bug in email processing.
+
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
 
 == Upgrade Notice ==
 
 Very Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
 
-= 1.1.6 =
-* Compatible with the latest WP versions
-* Better interface and access to the plugin options
-* Minor bug fixes
-* Fixed issues related to the get_site_url when WP site not in the default folder
+= 1.1.7 = 
+* Security updates (Thanks to Christian Mondragon Uriel Zarate)
+* Update to the function that generates the IPN url.
+* Fixed bug in email processing.
 
 
 Important note: If you are using the Professional version don't update via the WP dashboard but using your personal update link. Contact us if you need further information: http://wordpress.dwbooster.com/support
