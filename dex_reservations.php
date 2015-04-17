@@ -479,6 +479,7 @@ function dex_reservations_check_posted_data()
     {
         echo 'Error saving data! Please try again.';
         echo '<br /><br />Error debug information: '.mysql_error();
+        echo '<br /><br />If the error persists contact support service at http://wordpress.dwbooster.com/support';
         exit;
     }
 
