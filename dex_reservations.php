@@ -760,8 +760,8 @@ function cp_reservation_get_FULL_site_url($admin = false)
     $pos = strpos($url, "://");    
     if ($pos === false)
         $url = 'http://'.$_SERVER["HTTP_HOST"].$url;
-    if (!empty($_SERVER['HTTPS']))     
-        $url = str_replace("http://","https://",$url);        
+//    if (!empty($_SERVER['HTTPS']))     
+//        $url = str_replace("http://","https://",$url);        
     return $url;
 }
 
