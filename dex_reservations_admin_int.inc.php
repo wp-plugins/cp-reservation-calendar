@@ -22,7 +22,7 @@ if (cp_reservation_is_administrator() || $mycalendarrows[0]->conwer == $current_
 
 ?>
 <div class="wrap">
-<h2>CP Reservation Calendar - Manage Calendar Availability</h2>
+<h1>CP Reservation Calendar - Manage Calendar Availability</h1>
 
 <input type="button" name="backbtn" value="Back to items list..." onclick="document.location='admin.php?page=dex_reservations';">
 

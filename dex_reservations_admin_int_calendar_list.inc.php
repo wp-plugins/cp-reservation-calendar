@@ -37,7 +37,7 @@ if ($message) echo "<div id='setting-error-settings_updated' class='updated sett
 
 ?>
 <div class="wrap">
-<h2>CP Reservation Calendar</h2>
+<h1>CP Reservation Calendar</h1>
 
 
 
